@@ -29,17 +29,26 @@ const StatCard = ({ item }) => {
             </div>
             <div className="monster-sense-row">Senses: {monster?.senses} | Languages: {monster?.languages}</div>
             <div className="monster-skill-row">
-                { <ul>
+                {<ul>
                     {monster?.special_abilities.map((item) => (
                         <li key={item.name}><strong>{item.name}:</strong> {item.desc}</li>
                     ))}
-                </ul> }
+                </ul>}
             </div>
-            <div className="monster-actions-row"><ul>
+            <div className="monster-actions-row">Actions:
+                <ul>
                     {monster?.actions.map((item) => (
                         <li key={item.name}><strong>{item.name}:</strong> {item.desc}</li>
                     ))}
-                </ul></div>
+                </ul>
+
+
+                <ul>
+                    {monster?.bonus_actions?.map((item) => (
+                        <li key={item.name}>Bonus Action: <strong>{item.name}:</strong> {item.desc}</li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

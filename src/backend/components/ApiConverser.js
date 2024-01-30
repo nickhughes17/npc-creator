@@ -15,7 +15,7 @@ const ApiConverser = ({setListOfMonsters}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://api.open5e.com/monsters/?ordering=challenge_rating&type=Beast&name=Owl');
+        const response = await fetch('https://api.open5e.com/monsters/?ordering=challenge_rating&type=Beast&name=Badger');
         const result = await response.json();
         setData(result.results);
        // console.log(result);
