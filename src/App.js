@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ApiConverser from './backend/components/ApiConverser';
+import StatCard from './frontend/components/StatCard';
 
 function App() {
+  const [listOfMonsters, setListOfMonsters] = useState();
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="body">
+        <ApiConverser
+          setListOfMonsters={setListOfMonsters} 
+        />
+        {listOfMonsters ? (
+        <ul>
+          {listOfMonsters.map((item) => (
+            <StatCard key={item.slug} item={item} />
+          ))}
+        </ul>
+      ) : (
+        <p>Loading...</p>
+      )}
+      </div>
     </div>
   );
 }
